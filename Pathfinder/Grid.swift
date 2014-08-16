@@ -8,9 +8,9 @@
 
 import Foundation
 
-public class Coordinates2D: Coordinates, Printable {
-    let x: Int
-    let y: Int
+public class GridCoordinates: Coordinates, Printable {
+    public let x: Int
+    public let y: Int
     
     public init(x: Int, y: Int) {
         self.x = x
@@ -67,15 +67,15 @@ public class Grid: Map {
     
     override public func hValueForNode(node: Node, endNode: Node) -> Int {
         // TODO: Don't unsave cast!
-        let index = node.coordinates as Coordinates2D
-        let endIndex = endNode.coordinates as Coordinates2D
+        let index = node.coordinates as GridCoordinates
+        let endIndex = endNode.coordinates as GridCoordinates
         
         return abs(endIndex.x - index.x) + abs(endIndex.y - index.y)
     }
     
     override public func moveCostForNode(node: Node, toNode: Node) -> Int {
-        let index = node.coordinates as Coordinates2D
-        let toIndex = toNode.coordinates as Coordinates2D
+        let index = node.coordinates as GridCoordinates
+        let toIndex = toNode.coordinates as GridCoordinates
         
         return (abs(index.x - toIndex.x) > 0 && abs(index.y - toIndex.y) > 0) ? 14 : 10
     }
