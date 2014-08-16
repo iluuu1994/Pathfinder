@@ -62,7 +62,7 @@ class GridView: UIView {
         
         var path: [Node]!
         measureTime("A*") {
-            path = Algorithm.findPathInMap(map, startNode: matrix[from.x, from.y], endNode: matrix[to.x, to.y])
+            path = AStarAlgorithm.findPathInMap(map, startNode: matrix[from.x, from.y], endNode: matrix[to.x, to.y])
         }
         
         for x in 0..<matrix.width {

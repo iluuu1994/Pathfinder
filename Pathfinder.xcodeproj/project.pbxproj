@@ -14,6 +14,7 @@
 		911CD2A5199FF26A00EA7BAD /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911CD2A4199FF26A00EA7BAD /* Helpers.swift */; };
 		911CD2A7199FFCA200EA7BAD /* NodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911CD2A6199FFCA200EA7BAD /* NodeView.swift */; };
 		911CD2A9199FFCCF00EA7BAD /* Direction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911CD2A8199FFCCF00EA7BAD /* Direction.swift */; };
+		911CD2AD19A00B1F00EA7BAD /* AStarAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911CD2AC19A00B1F00EA7BAD /* AStarAlgorithm.swift */; };
 		914147E3199F809C009DB333 /* Coordinates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914147E2199F809C009DB333 /* Coordinates.swift */; };
 		91761657199E1E8600253001 /* Move.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91761656199E1E8600253001 /* Move.swift */; };
 		91761659199E220300253001 /* Algorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91761658199E220300253001 /* Algorithm.swift */; };
@@ -50,6 +51,7 @@
 		911CD2A4199FF26A00EA7BAD /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		911CD2A6199FFCA200EA7BAD /* NodeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NodeView.swift; sourceTree = "<group>"; };
 		911CD2A8199FFCCF00EA7BAD /* Direction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Direction.swift; sourceTree = "<group>"; };
+		911CD2AC19A00B1F00EA7BAD /* AStarAlgorithm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AStarAlgorithm.swift; sourceTree = "<group>"; };
 		914147E2199F809C009DB333 /* Coordinates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinates.swift; sourceTree = "<group>"; };
 		91761656199E1E8600253001 /* Move.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Move.swift; sourceTree = "<group>"; };
 		91761658199E220300253001 /* Algorithm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Algorithm.swift; sourceTree = "<group>"; };
@@ -157,6 +159,35 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		911CD2AA19A00AF700EA7BAD /* Algorithms */ = {
+			isa = PBXGroup;
+			children = (
+				911CD2AC19A00B1F00EA7BAD /* AStarAlgorithm.swift */,
+			);
+			name = Algorithms;
+			sourceTree = "<group>";
+		};
+		911CD2AB19A00B0600EA7BAD /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				91761686199E99FB00253001 /* Matrix.swift */,
+				911CD2A4199FF26A00EA7BAD /* Helpers.swift */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
+		911CD2AE19A00BA900EA7BAD /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				91761658199E220300253001 /* Algorithm.swift */,
+				9119C528199D9633001DB154 /* Node.swift */,
+				91761656199E1E8600253001 /* Move.swift */,
+				914147E2199F809C009DB333 /* Coordinates.swift */,
+				9119C52A199D9663001DB154 /* Map.swift */,
+			);
+			name = Core;
+			sourceTree = "<group>";
+		};
 		91761661199E926500253001 /* Pathfinder-Demo */ = {
 			isa = PBXGroup;
 			children = (
@@ -200,12 +231,10 @@
 		91761684199E98C100253001 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				91761658199E220300253001 /* Algorithm.swift */,
-				9119C528199D9633001DB154 /* Node.swift */,
-				91761656199E1E8600253001 /* Move.swift */,
-				91761686199E99FB00253001 /* Matrix.swift */,
-				911CD2A4199FF26A00EA7BAD /* Helpers.swift */,
+				911CD2AA19A00AF700EA7BAD /* Algorithms */,
+				911CD2AE19A00BA900EA7BAD /* Core */,
 				91761685199E98C900253001 /* Maps */,
+				911CD2AB19A00B0600EA7BAD /* Helpers */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -213,8 +242,6 @@
 		91761685199E98C900253001 /* Maps */ = {
 			isa = PBXGroup;
 			children = (
-				914147E2199F809C009DB333 /* Coordinates.swift */,
-				9119C52A199D9663001DB154 /* Map.swift */,
 				91761682199E98AD00253001 /* Grid.swift */,
 			);
 			name = Maps;
@@ -389,6 +416,7 @@
 			files = (
 				914147E3199F809C009DB333 /* Coordinates.swift in Sources */,
 				9119C52B199D9663001DB154 /* Map.swift in Sources */,
+				911CD2AD19A00B1F00EA7BAD /* AStarAlgorithm.swift in Sources */,
 				91761659199E220300253001 /* Algorithm.swift in Sources */,
 				911CD2A5199FF26A00EA7BAD /* Helpers.swift in Sources */,
 				91761687199E99FB00253001 /* Matrix.swift in Sources */,
