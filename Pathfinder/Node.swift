@@ -56,7 +56,7 @@ public class Node: Printable {
 extension Node: Printable {
 
     public var description: String {
-        return "<Node at:\(coordinates)>"
+        return "<Node at:\(coordinates) h:\(hValue) g:\(gValue) f:\(fValue)>"
     }
     
 }

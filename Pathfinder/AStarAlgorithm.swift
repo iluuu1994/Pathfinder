@@ -26,13 +26,6 @@ public class AStarAlgorithm: Algorithm {
             
             // Check if we reached the end node
             if currentNode == endNode {
-                println("Iterations: \(iterations)")
-                println("Open List Count: \(countElements(openList))")
-                println("Closed List Count: \(countElements(closedList))")
-                for node in closedList {
-                    println(node.hValue)
-                }
-                
                 var route = [endNode]
                 while let parent = route.first?.parent {
                     route.insert(parent, atIndex: 0)
@@ -63,7 +56,7 @@ public class AStarAlgorithm: Algorithm {
                     neighbour.parent = currentNode
                     
                     // Calculate the g value
-                    neighbour.gValue = currentNode.gValue// + map.moveCostForNode(currentNode, toNode: neighbour)
+                    neighbour.gValue = currentNode.gValue + map.moveCostForNode(currentNode, toNode: neighbour)
                     
                     // Add the new node to the open list
                     openList.append(neighbour)
@@ -72,6 +65,7 @@ public class AStarAlgorithm: Algorithm {
             
             // Sort to keep looking for the best path
             openList.sort { $0.fValue < $1.fValue }
+            println(openList)
         }
         
         // If there is no route, we just return an empty array
