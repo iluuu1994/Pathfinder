@@ -65,19 +65,19 @@ public class Grid: Map {
         return moves
     }
     
-    override public func hValueForNode(node: Node, endNode: Node) -> Int {
+    override public func hValueForNode(node: Node, endNode: Node) -> Double {
         // TODO: Don't unsave cast!
         let index = node.coordinates as GridCoordinates
         let endIndex = endNode.coordinates as GridCoordinates
         
-        return abs(endIndex.x - index.x) + abs(endIndex.y - index.y)
+        return Double(abs(endIndex.x - index.x) + abs(endIndex.y - index.y))
     }
     
-    override public func moveCostForNode(node: Node, toNode: Node) -> Int {
+    override public func moveCostForNode(node: Node, toNode: Node) -> Double {
         let index = node.coordinates as GridCoordinates
         let toIndex = toNode.coordinates as GridCoordinates
         
-        return (abs(index.x - toIndex.x) > 0 && abs(index.y - toIndex.y) > 0) ? 14 : 10
+        return (abs(index.x - toIndex.x) > 0 && abs(index.y - toIndex.y) > 0) ? 1 : 1.4
     }
     
     override public func precalculateHValue(endNode: Node) {

@@ -31,14 +31,14 @@ public class Node: Printable {
     public var accessible: Bool = true
     
     // Heuristic Value
-    public var hValue: Int = 0
+    public var hValue: Double = 0.0
     
     // TODO: <Remove this>
     // The total cost that incur when performing the move
-    public var gValue: Int = 0
+    public var gValue: Double = 0.0
     
     // The total cost
-    public var fValue: Int {
+    public var fValue: Double {
         return hValue + gValue
     }
     // </Remove this>

@@ -20,7 +20,7 @@ public class NodeView: UIView {
         let valuesTextField = UITextField(frame: bounds)
         valuesTextField.autoresizingMask = UIViewAutoresizing.FlexibleWidth | UIViewAutoresizing.FlexibleHeight
         valuesTextField.textAlignment = .Center
-        valuesTextField.font = UIFont.systemFontOfSize(6)
+        valuesTextField.font = UIFont.systemFontOfSize(5)
         valuesTextField.text = "\(node.hValue) + \(node.gValue) = \(node.fValue)"
         addSubview(valuesTextField)
         

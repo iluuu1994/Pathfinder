@@ -20,12 +20,12 @@ public class Map {
         return []
     }
     
-    func hValueForNode(node: Node, endNode: Node) -> Int {
+    func hValueForNode(node: Node, endNode: Node) -> Double {
         assert(false, "Unimplemented")
         return 0
     }
     
-    func moveCostForNode(node: Node, toNode: Node) -> Int {
+    func moveCostForNode(node: Node, toNode: Node) -> Double {
         assert(false, "Unimplemented")
         return 0
     }

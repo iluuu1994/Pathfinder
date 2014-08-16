@@ -18,9 +18,7 @@ public class AStarAlgorithm: Algorithm {
         map.precalculateHValue(endNode)
         
         // Add the neighbours of the start node to the open list to start the iteration process
-        var iterations = 0
         while let currentNode = openList.first {
-            iterations++
             openList.removeAtIndex(0)
             closedList.append(currentNode)
             
@@ -57,7 +55,7 @@ public class AStarAlgorithm: Algorithm {
                     
                     // Calculate the g value
                     neighbour.gValue = currentNode.gValue + map.moveCostForNode(currentNode, toNode: neighbour)
-                    
+                
                     // Add the new node to the open list
                     openList.append(neighbour)
                 }
@@ -65,7 +63,6 @@ public class AStarAlgorithm: Algorithm {
             
             // Sort to keep looking for the best path
             openList.sort { $0.fValue < $1.fValue }
-            println(openList)
         }
         
         // If there is no route, we just return an empty array
