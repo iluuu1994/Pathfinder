@@ -44,9 +44,4 @@ public class Map {
         return 0
     }
     
-    /// Precalculates the h value of all nodes in the map
-    func precalculateHValue(endNode: Node) {
-        assert(false, "Unimplemented")
-    }
-    
 }

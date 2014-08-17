@@ -20,9 +20,6 @@ public class AStarAlgorithm: Algorithm {
         var openList = IndexedArray<Node, Double>(extractIndex: { (node) in return node.fValue })
         openList.add(startNode)
         
-        // Pre-calculate the h value of every node
-        map.precalculateHValue(endNode)
-        
         // Add the neighbours of the start node to the open list to start the iteration process
         while let currentNode = openList.array.first {
             currentNode.closed = true
@@ -58,6 +55,9 @@ public class AStarAlgorithm: Algorithm {
                     
                     // Calculate the g value
                     neighbour.gValue = currentNode.gValue + moveCost
+                    
+                    // Calculate the h value
+                    neighbour.hValue = map.hValueForNode(neighbour, endNode: endNode)
                     
                     // Add the new node to the open list
                     neighbour.opened = true

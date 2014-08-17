@@ -101,12 +101,14 @@ public class Grid: Map {
     private let _nodes: Matrix<Node>
     
     /// Indicates if the path is allowed to use diagonal moves
+    // FIXME: Sometimes the path makes weird detours
+    // FIXME: Allows making directional moves when there are adjacent neighbours
     @objc
     public var allowsDiagonalMoves = false
     
     /// Indicates if the path is allowed to use diagonal moves next to a corner
-    /// NOTE: Unimplemented
-    /// TODO: Implement
+    // NOTE: Unimplemented
+    // TODO: Implement
     @objc
     public var allowsCuttingCorners = true
     
@@ -163,17 +165,14 @@ public class Grid: Map {
         return ((abs(index.x - toIndex.x) > 0 && abs(index.y - toIndex.y) > 0) ? 1 : 1.4) * _accuracy
     }
     
-    /// Precalculates the h value of all nodes in the map
-    override internal func precalculateHValue(endNode: Node) {
+    /// Calculates the h value of a node
+    override internal func hValueForNode(node: Node, endNode: Node) -> Double {
+        let coord1 = node.coordinates as Coordinates2D
         let coord2 = endNode.coordinates as Coordinates2D
         
-        for (x, y, node) in _nodes {
-            let coord1 = node.coordinates as Coordinates2D
-            
-            switch heuristicFunction {
-                case .Manhattan:
-                    node.hValue = Double(abs(coord1.x - coord2.x) + abs(coord1.y - coord2.y))
-            }
+        switch heuristicFunction {
+            case .Manhattan:
+                return Double(abs(coord1.x - coord2.x) + abs(coord1.y - coord2.y))
         }
     }
     
