@@ -19,6 +19,7 @@ Soon.
 ## Things to note
 - Best performance is achieved when using the Release Build Configuration
 - I have not tested this on an iPhone 
+- The demo is a mess, I'll clean that up soon
 
 ## License
 Pathfinder is available under the MIT license. See the LICENSE file for more info.
