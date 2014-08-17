@@ -9,7 +9,7 @@
 import UIKit
 import Pathfinder
 
-private let _gridSize = 30
+private let _gridSize = 20
 
 enum DraggingOperation {
     case Start, End, Toggle

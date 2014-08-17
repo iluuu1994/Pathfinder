@@ -54,7 +54,7 @@ public class NodeView: UIView {
                                                            UIColor(red: 0.83, green: 0.93, blue: 1.0, alpha: 1.0)) : // Open List
                                                            UIColor(red: 0.43, green: 0.7, blue: 0.9, alpha: 1.0) // Path
             case .Obstacle:
-                return UIColor(white: 0.7, alpha: 1.0)
+                return UIColor(white: 0.4, alpha: 1.0)
             case .Start:
                 return UIColor(red: 0.75, green: 0.23, blue: 0.19, alpha: 1.0)
             case .End:
@@ -79,7 +79,7 @@ public class NodeView: UIView {
         _color.set()
         UIRectFill(rect)
         
-        UIColor(white: 0.0, alpha: 0.3).setStroke()
+        UIColor(white: 0.0, alpha: 0.1).setStroke()
         UIBezierPath(rect: bounds).stroke()
     }
 }
