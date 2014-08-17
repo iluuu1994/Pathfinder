@@ -9,6 +9,7 @@
 import Foundation
 
 /// Coordinates stores coordinate of any type of coordinate system
+@objc(PFCoordinates)
 public class Coordinates {
     
     /// Wraps the coordinates in an array

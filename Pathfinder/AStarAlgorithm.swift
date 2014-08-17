@@ -10,9 +10,11 @@ import Foundation
 
 /// AStarAlgorithm is a class that implements the A* Algorithm for pathfinding
 /// http://en.wikipedia.org/wiki/A*_search_algorithm
+@objc(PFAStarAlgorithm)
 public class AStarAlgorithm: Algorithm {
 
     /// Finds the path from point A to B in any Map
+    @objc
     public class func findPathInMap(map: Map, startNode: Node, endNode: Node) -> [Node] {
         // var openList: [Node] = [startNode]
         var openList = IndexedArray<Node, Double>(extractIndex: { (node) in return node.fValue })

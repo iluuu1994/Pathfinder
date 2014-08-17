@@ -22,7 +22,7 @@ public func measureTime(block: () -> ()) -> Double {
 }
 
 /// Build a path from linked nodes
-public func backtracePath(endNode: Node) -> [Node] {
+internal func backtracePath(endNode: Node) -> [Node] {
     var route = [endNode]
     
     // Recursive lookup of the nodes parent

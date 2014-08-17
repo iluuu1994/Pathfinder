@@ -9,6 +9,7 @@
 import Foundation
 
 /// A matrix is able to store values in 2 dimensional form
+// TODO: Make Objective-C compatible
 @objc(PFMatrix)
 public class Matrix<T> {
 

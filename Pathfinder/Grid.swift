@@ -22,12 +22,15 @@ public class Coordinates2D: Coordinates {
     // --------------------
     
     /// The x coordinate
+    @objc
     public let x: Int
     
     /// The y coordinate
+    @objc
     public let y: Int
     
     /// Inits the object using both x and y coordinate
+    @objc
     public init(x: Int, y: Int) {
         self.x = x
         self.y = y
@@ -87,6 +90,7 @@ public func ==(lhs: Coordinates2D, rhs: Coordinates2D) -> Bool {
 // ---------------------------------------------------------------------
 
 /// Grid is an implementation of a 2d map
+@objc(PFGrid)
 public class Grid: Map {
     
     // --------------------
@@ -97,11 +101,13 @@ public class Grid: Map {
     private let _nodes: Matrix<Node>
     
     /// Indicates if the path is allowed to use diagonal moves
+    @objc
     public var allowsDiagonalMoves = false
     
     /// Indicates if the path is allowed to use diagonal moves next to a corner
     /// NOTE: Unimplemented
     /// TODO: Implement
+    @objc
     public var allowsCuttingCorners = true
     
     
@@ -111,6 +117,7 @@ public class Grid: Map {
     // --------------
     
     /// Init the map using the 2d grid
+    // TODO: @objc once Matrix is @objc
     public init(nodes: Matrix<Node>) {
         _nodes = nodes
     }
@@ -122,7 +129,7 @@ public class Grid: Map {
     // -----------------
 
     /// Returns the valid moves that can be performed from one node to the other
-    override public func validMoves(node: Node) -> [Node] {
+    override internal func validMoves(node: Node) -> [Node] {
         let index = node.coordinates as Coordinates2D
         var moves = [Node]()
         
@@ -146,7 +153,7 @@ public class Grid: Map {
     }
     
     /// Calculates the move cost from one node to one of it's neighbour nodes
-    override public func moveCostForNode(node: Node, toNode: Node) -> Double {
+    override internal func moveCostForNode(node: Node, toNode: Node) -> Double {
         let index = node.coordinates as Coordinates2D
         let toIndex = toNode.coordinates as Coordinates2D
         
@@ -154,7 +161,7 @@ public class Grid: Map {
     }
     
     /// Precalculates the h value of all nodes in the map
-    override public func precalculateHValue(endNode: Node) {
+    override internal func precalculateHValue(endNode: Node) {
         for x in 0..<_nodes.width {
             for y in 0..<_nodes.height {
                 let node = _nodes[x, y]
