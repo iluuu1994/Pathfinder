@@ -10,96 +10,67 @@ import UIKit
 import Pathfinder
 
 public class NodeView: UIView {
-    private let _color: UIColor
     
-    init(frame: CGRect, color: UIColor, node: Node) {
-        _color = color
-        
-        super.init(frame: frame)
-        
-        let valuesTextField = UITextField(frame: bounds)
-        valuesTextField.autoresizingMask = UIViewAutoresizing.FlexibleWidth | UIViewAutoresizing.FlexibleHeight
-        valuesTextField.textAlignment = .Center
-        valuesTextField.font = UIFont.systemFontOfSize(5)
-        valuesTextField.text = "\(node.hValue) + \(node.gValue) = \(node.fValue)"
-        addSubview(valuesTextField)
-        
-        let textField = UITextField(frame: bounds)
-        textField.autoresizingMask = UIViewAutoresizing.FlexibleWidth | UIViewAutoresizing.FlexibleHeight
-        textField.textAlignment = .Center
-        
-        
-        var direction = Direction.None
-        if let parent = node.parent {
-            let index = node.coordinates as GridCoordinates
-            let parentIndex = parent.coordinates as GridCoordinates
-            let deltaX = parentIndex.x > index.x ? -1 : (parentIndex.x < index.x ? 1 : 0)
-            let deltaY = parentIndex.y > index.y ? -1 : (parentIndex.y < index.y ? 1 : 0)
-            let delta = (deltaX, deltaY)
-            
-            direction = {
-                switch delta {
-                case (0,-1):
-                    return Direction.Up
-                case (1,-1):
-                    return Direction.UpRight
-                case (1,0):
-                    return Direction.Right
-                case (1,1):
-                    return Direction.DownRight
-                case (0,1):
-                    return Direction.Down
-                case (-1,1):
-                    return Direction.DownLeft
-                case (-1,0):
-                    return Direction.Left
-                case (-1,-1):
-                    return Direction.UpLeft
-                default:
-                    return .None
-                }
-                }()
-        }
-        
-        switch direction {
-        case .None:
-            textField.text = ""
-        case .Up:
-            textField.contentVerticalAlignment = .Bottom
-            textField.text = "↑"
-            textField.text = "↓"
-        case .Down:
-            textField.contentVerticalAlignment = .Top
-            textField.text = "↑"
-        case .Left:
-            textField.textAlignment = .Right
-            textField.text = "→"
-        case .Right:
-            textField.textAlignment = .Left
-            textField.text = "←"
-        case .UpRight:
-            textField.contentVerticalAlignment = .Bottom
-            textField.textAlignment = .Left
-            textField.text = "⇙"
-        case .DownRight:
-            textField.contentVerticalAlignment = .Top
-            textField.textAlignment = .Left
-            textField.text = "⇖"
-        case .UpLeft:
-            textField.contentVerticalAlignment = .Bottom
-            textField.textAlignment = .Right
-            textField.text = "⇘"
-        case .DownLeft:
-            textField.contentVerticalAlignment = .Top
-            textField.textAlignment = .Right
-            textField.text = "⇗"
-        }
-        
-        addSubview(textField)
+    public enum Type {
+        case Empty, Start, End, Obstacle
     }
     
+    public let node: Node
+    private var _type: Type = .Empty
+    
+    private var _partOfPath: Bool = false
+    public var partOfPath: Bool {
+        get {
+            return _partOfPath
+        }
+        set(newValue) {
+            _partOfPath = newValue
+            setNeedsDisplay()
+        }
+    }
+    
+    public var type: Type {
+        get {
+            return _type
+        }
+        set(newType) {
+            _type = newType
+            
+            switch _type {
+                case .Obstacle:
+                    node.accessible = false
+                default:
+                    node.accessible = true
+            }
+            
+            setNeedsDisplay()
+        }
+    }
+    
+    private var _color: UIColor {
+        switch _type {
+            case .Empty:
+                return !partOfPath ? UIColor(white: 1.0, alpha: 1.0) :
+                                     UIColor(red: 0.53, green: 0.8, blue: 1.0, alpha: 1.0)
+            case .Obstacle:
+                return UIColor(white: 0.7, alpha: 1.0)
+            case .Start:
+                return UIColor(red: 0.75, green: 0.23, blue: 0.19, alpha: 1.0)
+            case .End:
+                return UIColor(red: 0.22, green: 0.8, blue: 0.46, alpha: 1.0)
+            default:
+                node.accessible = true
+        }
+    }
+    
+    init(frame: CGRect, node: Node) {
+        self.node = node
+        super.init(frame: frame)
+    }
+    
+    // Compiler, shut up!
     required public init(coder aDecoder: NSCoder!) {
-        _color = UIColor.blackColor()
+        self.node = Node(coordinates: GridCoordinates(x: 0, y: 0))
         super.init(coder: aDecoder)
     }
     
@@ -107,7 +78,7 @@ public class NodeView: UIView {
         _color.set()
         UIRectFill(rect)
         
-        UIColor.blackColor().setStroke()
+        UIColor(white: 0.0, alpha: 0.3).setStroke()
         UIBezierPath(rect: bounds).stroke()
     }
 }

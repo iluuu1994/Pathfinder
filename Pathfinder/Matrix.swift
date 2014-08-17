@@ -47,6 +47,10 @@ public class Matrix<T: Equatable> {
     // MARK: - Methods -
     // -----------------
     
+    public func contains(element: T) -> Bool {
+        return Swift.contains(_elements, element)
+    }
+    
     private func indexOfElementInArray(element: T) -> Int? {
         for (index, eachElement) in enumerate(_elements) {
             if eachElement == element {

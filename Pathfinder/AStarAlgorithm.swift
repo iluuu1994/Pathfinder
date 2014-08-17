@@ -24,12 +24,7 @@ public class AStarAlgorithm: Algorithm {
             
             // Check if we reached the end node
             if currentNode == endNode {
-                var route = [endNode]
-                while let parent = route.first?.parent {
-                    route.insert(parent, atIndex: 0)
-                }
-                
-                return route
+                return backtracePath(endNode)
             }
             
             // Returns the neighbours of the node

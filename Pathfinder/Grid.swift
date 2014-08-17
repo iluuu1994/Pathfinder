@@ -30,7 +30,8 @@ public class Grid: Map {
     // --------------------
     
     private let _nodes: Matrix<Node>
-    
+    public var allowDiagonalMoves = true
+    public var allowCuttingCorners = true
     
     
     // --------------
@@ -51,7 +52,11 @@ public class Grid: Map {
         let index = _nodes.indexOfElement(node)!
         var moves = [Node]()
         
-        for (dX, dY) in [(1, 0), (1, 1), (0, 1), (-1, 1), (-1, 0), (-1, -1), (0, -1), (1, -1)] {
+        let adjacentNeighbours = [(1, 0), (0, 1), (-1, 0), (0, -1)]
+        let diagonalNeighbours = [(1, 1), (-1, 1), (-1, -1), (1, -1)]
+        let neighbours = allowDiagonalMoves ? adjacentNeighbours + diagonalNeighbours : adjacentNeighbours
+        
+        for (dX, dY) in neighbours {
             let x = index.x + dX
             let y = index.y + dY
             

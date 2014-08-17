@@ -18,3 +18,12 @@ public func measureTime(name: String, block: () -> ()) {
     println("\(name): \(end.timeIntervalSinceDate(start)) seconds");
     
 }
+
+public func backtracePath(endNode: Node) -> [Node] {
+    var route = [endNode]
+    while let parent = route.first?.parent {
+        route.insert(parent, atIndex: 0)
+    }
+    
+    return route
+}
