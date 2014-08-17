@@ -6,6 +6,9 @@ Pathfinder is a pathfinding library written in Swift.
 ![](./demo.png)
 ![](./demo2.png)
 
+## Work in progress!
+This library is work in progress! It's not ready for the real world yet!
+
 ## Usage
 Soon.
 
