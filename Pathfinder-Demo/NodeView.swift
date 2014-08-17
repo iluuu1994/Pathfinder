@@ -71,7 +71,7 @@ public class NodeView: UIView {
     
     // Compiler, shut up!
     required public init(coder aDecoder: NSCoder!) {
-        self.node = Node(coordinates: GridCoordinates(x: 0, y: 0))
+        self.node = Node(coordinates: Coordinates2D(x: 0, y: 0))
         super.init(coder: aDecoder)
     }
     

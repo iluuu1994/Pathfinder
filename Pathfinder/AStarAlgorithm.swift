@@ -8,26 +8,23 @@
 
 import Foundation
 
+/// AStarAlgorithm is a class that implements the A* Algorithm for pathfinding
+/// http://en.wikipedia.org/wiki/A*_search_algorithm
 public class AStarAlgorithm: Algorithm {
 
+    /// Finds the path from point A to B in any Map
     public class func findPathInMap(map: Map, startNode: Node, endNode: Node) -> [Node] {
         // var openList: [Node] = [startNode]
-        var openList = IndexedArray(extractIndex: { (node: Node) -> Double in
-            return node.fValue
-        })
+        var openList = IndexedArray<Node, Double>(extractIndex: { (node) in return node.fValue })
         openList.add(startNode)
-        
-        var openSet = Set<Node>()
-        var closedList = Set<Node>()
         
         // Pre-calculate the h value of every node
         map.precalculateHValue(endNode)
         
         // Add the neighbours of the start node to the open list to start the iteration process
         while let currentNode = openList.array.first {
-            openSet.remove(currentNode)
+            currentNode.closed = true
             openList.removeAtIndex(0)
-            closedList.insert(currentNode)
             
             // Check if we reached the end node
             if currentNode == endNode {
@@ -40,29 +37,28 @@ public class AStarAlgorithm: Algorithm {
             // Check each neighbour and add it to the open list
             for neighbour in validMoves {
                 // We don't check the node if it's in the closed list
-                if closedList.contains(neighbour) { continue }
+                if neighbour.closed { continue }
                 // If we can't access the tile we have to skip it
                 if !neighbour.accessible { continue }
                 // Calculate the move cost
                 let moveCost = map.moveCostForNode(currentNode, toNode: neighbour)
                 
-                if openSet.contains(neighbour) {
+                if neighbour.opened {
                     // The node was already added to the open list
                     // We need to check if we have to re-parent it
-                    //                    if neighbour.gValue > currentNode.gValue + moveCost {
-                    //                        neighbour.parent = currentNode
-                    //                        neighbour.gValue = currentNode.gValue + moveCost
-                    //                    }
+                    if neighbour.gValue > currentNode.gValue + moveCost {
+                        neighbour.parent = currentNode
+                        neighbour.gValue = currentNode.gValue + moveCost
+                    }
                 } else {
                     // Set the parent of the node
                     neighbour.parent = currentNode
                     
                     // Calculate the g value
-                    // TODO: Re-implement the move cost
-                    neighbour.gValue = currentNode.gValue// + moveCost
+                    neighbour.gValue = currentNode.gValue + moveCost
                     
                     // Add the new node to the open list
-                    openSet.insert(neighbour)
+                    neighbour.opened = true
                     openList.add(neighbour)
                 }
             }

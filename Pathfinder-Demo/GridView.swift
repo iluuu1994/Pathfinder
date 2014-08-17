@@ -9,7 +9,7 @@
 import UIKit
 import Pathfinder
 
-private let _gridSize = 80
+private let _gridSize = 30
 
 enum DraggingOperation {
     case Start, End, Toggle
@@ -35,7 +35,7 @@ class GridView: UIView {
         })
         _nodes = Matrix(width: _gridSize, height: _gridSize) {
             (x, y) -> Node in
-            return Node(coordinates: GridCoordinates(x: x, y: y))
+            return Node(coordinates: Coordinates2D(x: x, y: y))
         }
 
         _grid = Grid(nodes: self._nodes)
@@ -153,6 +153,13 @@ class GridView: UIView {
         
         for x in 0..<_nodes.width {
             for y in 0..<_nodes.height {
+                let node = _nodes[x, y]
+                node.reset()
+            }
+        }
+        
+        for x in 0..<_nodes.width {
+            for y in 0..<_nodes.height {
                 if let nodeView = _nodeViews[x, y] {
                     if nodeView.node.parent != nil { nodeView.node.parent = nil }
                     if nodeView.partOfPath { nodeView.partOfPath = false }
@@ -172,7 +179,7 @@ class GridView: UIView {
         }
         
         for node in _cachedPath! {
-            let coords = node.coordinates as GridCoordinates
+            let coords = node.coordinates as Coordinates2D
             if let nodeView = _nodeViews[coords.x, coords.y] {
                 nodeView.partOfPath = true
             }

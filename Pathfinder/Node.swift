@@ -8,13 +8,16 @@
 
 import Foundation
 
+/// Defines a unit on a map
 @objc(PFNode)
-public class Node: Printable, Hashable {
+public class Node {
     
     // --------------
     // MARK: - Init -
     // --------------
     
+    /// Init the node using it's coordinate
+    /// The coordinate never changes
     public init(coordinates: Coordinates) {
         self.coordinates = coordinates
     }
@@ -24,27 +27,56 @@ public class Node: Printable, Hashable {
     // MARK: - Properties -
     // --------------------
     
-    // The coordinates of the node in the map
+    /// The coordinates of the node in the map
     public let coordinates: Coordinates
     
-    // Indicates if the node is accessible
+    /// Indicates if the node has been opened
+    public var opened: Bool = false
+    
+    /// Indicates if the node has been closed
+    public var closed: Bool = false
+    
+    /// Indicates if the node is accessible
     public var accessible: Bool = true
     
-    // Heuristic Value
+    /// Heuristic Value
     public var hValue: Double = 0.0
     
-    // The total cost that incur when performing the move
+    /// Move Cost (+ move cost of parent)
     public var gValue: Double = 0.0
     
-    // The total cost
+    /// The total cost (h + g)
     public var fValue: Double {
         return hValue + gValue
     }
     
-    // The parent node is used to lead back to the start node
+    /// The parent node is used to lead back to the start node
     public var parent: Node?
     
-    // The has value to store the node in a set
+    
+    
+    // -----------------
+    // MARK: - Methods -
+    // -----------------
+    
+    /// Reset the nodes properties
+    public func reset() {
+        opened = false
+        closed = false
+        hValue = 0
+        gValue = 0
+        parent = nil
+    }
+    
+}
+
+
+
+// ------------------
+// MARK: - Hashable -
+// ------------------
+
+extension Node: Hashable {
     public var hashValue: Int {
         return coordinates.hashValue
     }
@@ -57,7 +89,6 @@ public class Node: Printable, Hashable {
 // -------------------
 
 extension Node: Printable {
-
     public var description: String {
         return "<Node at:\(coordinates) h:\(hValue) g:\(gValue) f:\(fValue)>"
     }
