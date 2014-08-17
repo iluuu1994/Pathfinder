@@ -1,7 +1,7 @@
 Pathfinder
 ==========
 
-Pathfinder is a pathfinding library written in Swift.
+Pathfinder is a pathfinding library for iOS and OS X written in Swift.
 
 ![](./demo.png)
 ![](./demo2.png)
