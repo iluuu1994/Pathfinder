@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class Matrix<T: Equatable> {
+public class Matrix<T> {
 
     // --------------------
     // MARK: - Properties -
@@ -39,38 +39,6 @@ public class Matrix<T: Equatable> {
                 self[x, y] = repeatedValue(x: x, y: y)
             }
         }
-    }
-    
-    
-
-    // -----------------
-    // MARK: - Methods -
-    // -----------------
-    
-    public func contains(element: T) -> Bool {
-        return Swift.contains(_elements, element)
-    }
-    
-    private func indexOfElementInArray(element: T) -> Int? {
-        for (index, eachElement) in enumerate(_elements) {
-            if eachElement == element {
-                return index
-            }
-        }
-        
-        return nil
-    }
-    
-    public func indexOfElement(element: T) -> (x: Int, y: Int)? {
-        if let index = indexOfElementInArray(element) {
-            // Automatically floors down, since it's an int
-            let y = index / width
-            let x = index % width
-            
-            return (x: x, y: y)
-        }
-        
-        return nil
     }
     
     

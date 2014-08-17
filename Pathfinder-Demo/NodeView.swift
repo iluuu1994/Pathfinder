@@ -50,8 +50,9 @@ public class NodeView: UIView {
     private var _color: UIColor {
         switch _type {
             case .Empty:
-                return !partOfPath ? UIColor(white: 1.0, alpha: 1.0) :
-                                     UIColor(red: 0.53, green: 0.8, blue: 1.0, alpha: 1.0)
+                return !partOfPath ? (node.parent == nil ? UIColor(white: 1.0, alpha: 1.0) : // Default
+                                                           UIColor(red: 0.83, green: 0.93, blue: 1.0, alpha: 1.0)) : // Open List
+                                                           UIColor(red: 0.43, green: 0.7, blue: 0.9, alpha: 1.0) // Path
             case .Obstacle:
                 return UIColor(white: 0.7, alpha: 1.0)
             case .Start:

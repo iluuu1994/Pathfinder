@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class GridCoordinates: Coordinates, Printable {
+public class GridCoordinates: Coordinates, Hashable, Printable {
     public let x: Int
     public let y: Int
     
@@ -20,6 +20,15 @@ public class GridCoordinates: Coordinates, Printable {
     public var description: String {
         return "(\(x),\(y))"
     }
+    
+    override public var hashValue: Int {
+        // http://en.wikipedia.org/wiki/Cantor%5Fpairing%5Ffunction#Cantor_pairing_function
+        return (x + y)*(x + y + 1)/2 + y
+    }
+}
+
+public func ==(lhs: GridCoordinates, rhs: GridCoordinates) -> Bool {
+    return (lhs.x == rhs.x && lhs.y == rhs.y)
 }
 
 
@@ -30,7 +39,7 @@ public class Grid: Map {
     // --------------------
     
     private let _nodes: Matrix<Node>
-    public var allowDiagonalMoves = true
+    public var allowDiagonalMoves = false
     public var allowCuttingCorners = true
     
     
@@ -49,7 +58,7 @@ public class Grid: Map {
     // -----------------
 
     override public func validMoves(node: Node) -> [Node] {
-        let index = _nodes.indexOfElement(node)!
+        let index = node.coordinates as GridCoordinates
         var moves = [Node]()
         
         let adjacentNeighbours = [(1, 0), (0, 1), (-1, 0), (0, -1)]

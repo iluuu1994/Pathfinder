@@ -8,6 +8,14 @@
 
 import Foundation
 
-public class Coordinates {
+public class Coordinates: Hashable {
     
+    public var hashValue: Int {
+        return 0
+    }
+    
+}
+
+public func ==(lhs: Coordinates, rhs: Coordinates) -> Bool {
+    return lhs === rhs
 }

@@ -35,6 +35,9 @@
                                         <include reference="2J5-d9-fDN"/>
                                     </mask>
                                 </variation>
+                                <connections>
+                                    <outlet property="durationLabel" destination="s68-Ar-uzd" id="hbq-eA-fH5"/>
+                                </connections>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nZx-6x-f8y">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
@@ -45,31 +48,48 @@
                                     <action selector="startPathfinder:" destination="61s-x2-gxN" eventType="touchUpInside" id="kfI-HD-fHF"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Duration: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s68-Ar-uzd">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="s68-Ar-uzd" firstAttribute="top" secondItem="nZx-6x-f8y" secondAttribute="bottom" constant="8" id="2Kv-YI-vTx"/>
+                            <constraint firstItem="s68-Ar-uzd" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="6vm-re-yYl"/>
                             <constraint firstItem="61s-x2-gxN" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="78V-2f-5IQ"/>
                             <constraint firstItem="nZx-6x-f8y" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="AV6-vP-ovx"/>
                             <constraint firstItem="nZx-6x-f8y" firstAttribute="top" secondItem="61s-x2-gxN" secondAttribute="bottom" constant="8" id="BqW-C7-5kV"/>
                             <constraint firstItem="61s-x2-gxN" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="8" id="JLX-g9-boj"/>
                             <constraint firstItem="61s-x2-gxN" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="Q9Q-g4-oX7"/>
+                            <constraint firstItem="s68-Ar-uzd" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="ehx-Xt-mrZ"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="nZx-6x-f8y"/>
+                                <exclude reference="s68-Ar-uzd"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="AV6-vP-ovx"/>
                                 <exclude reference="BqW-C7-5kV"/>
+                                <exclude reference="2Kv-YI-vTx"/>
+                                <exclude reference="6vm-re-yYl"/>
+                                <exclude reference="ehx-Xt-mrZ"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
                                 <include reference="nZx-6x-f8y"/>
+                                <include reference="s68-Ar-uzd"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="AV6-vP-ovx"/>
                                 <include reference="BqW-C7-5kV"/>
+                                <include reference="2Kv-YI-vTx"/>
+                                <include reference="6vm-re-yYl"/>
+                                <include reference="ehx-Xt-mrZ"/>
                             </mask>
                         </variation>
                     </view>

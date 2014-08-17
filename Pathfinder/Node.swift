@@ -9,7 +9,7 @@
 import Foundation
 
 @objc(PFNode)
-public class Node: Printable {
+public class Node: Printable, Hashable {
     
     // --------------
     // MARK: - Init -
@@ -33,7 +33,6 @@ public class Node: Printable {
     // Heuristic Value
     public var hValue: Double = 0.0
     
-    // TODO: <Remove this>
     // The total cost that incur when performing the move
     public var gValue: Double = 0.0
     
@@ -41,10 +40,14 @@ public class Node: Printable {
     public var fValue: Double {
         return hValue + gValue
     }
-    // </Remove this>
     
     // The parent node is used to lead back to the start node
     public var parent: Node?
+    
+    // The has value to store the node in a set
+    public var hashValue: Int {
+        return coordinates.hashValue
+    }
 }
 
 

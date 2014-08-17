@@ -8,14 +8,14 @@
 
 import Foundation
 
-public func measureTime(name: String, block: () -> ()) {
+public func measureTime(block: () -> ()) -> Double {
 
-    let start = NSDate(); // <<<<<<<<<< Start time
+    let start = NSDate()
     
     block()
     
-    let end = NSDate();   // <<<<<<<<<<   end time
-    println("\(name): \(end.timeIntervalSinceDate(start)) seconds");
+    let end = NSDate()
+    return end.timeIntervalSinceDate(start)
     
 }
 

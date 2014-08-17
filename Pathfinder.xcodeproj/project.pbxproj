@@ -26,6 +26,9 @@
 		91761681199E972300253001 /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91761680199E972300253001 /* GridView.swift */; };
 		91761683199E98AD00253001 /* Grid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91761682199E98AD00253001 /* Grid.swift */; };
 		91761687199E99FB00253001 /* Matrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91761686199E99FB00253001 /* Matrix.swift */; };
+		9186EF8C19A0D20D00D1D4FA /* IndexedArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9186EF8B19A0D20D00D1D4FA /* IndexedArray.swift */; };
+		91A4322719A0BE14008FC7C8 /* Set.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A4322619A0BE14008FC7C8 /* Set.swift */; };
+		91A4322919A0BE27008FC7C8 /* Unit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A4322819A0BE27008FC7C8 /* Unit.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +68,9 @@
 		91761680199E972300253001 /* GridView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
 		91761682199E98AD00253001 /* Grid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Grid.swift; sourceTree = "<group>"; };
 		91761686199E99FB00253001 /* Matrix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Matrix.swift; sourceTree = "<group>"; };
+		9186EF8B19A0D20D00D1D4FA /* IndexedArray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndexedArray.swift; sourceTree = "<group>"; };
+		91A4322619A0BE14008FC7C8 /* Set.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Set.swift; sourceTree = "<group>"; };
+		91A4322819A0BE27008FC7C8 /* Unit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Unit.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,8 +174,11 @@
 		911CD2AB19A00B0600EA7BAD /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				9186EF8B19A0D20D00D1D4FA /* IndexedArray.swift */,
 				91761686199E99FB00253001 /* Matrix.swift */,
 				911CD2A4199FF26A00EA7BAD /* Helpers.swift */,
+				91A4322619A0BE14008FC7C8 /* Set.swift */,
+				91A4322819A0BE27008FC7C8 /* Unit.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -411,11 +420,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				91A4322719A0BE14008FC7C8 /* Set.swift in Sources */,
 				914147E3199F809C009DB333 /* Coordinates.swift in Sources */,
 				9119C52B199D9663001DB154 /* Map.swift in Sources */,
 				911CD2AD19A00B1F00EA7BAD /* AStarAlgorithm.swift in Sources */,
+				9186EF8C19A0D20D00D1D4FA /* IndexedArray.swift in Sources */,
 				91761659199E220300253001 /* Algorithm.swift in Sources */,
 				911CD2A5199FF26A00EA7BAD /* Helpers.swift in Sources */,
+				91A4322919A0BE27008FC7C8 /* Unit.swift in Sources */,
 				91761687199E99FB00253001 /* Matrix.swift in Sources */,
 				91761657199E1E8600253001 /* Move.swift in Sources */,
 				91761683199E98AD00253001 /* Grid.swift in Sources */,
