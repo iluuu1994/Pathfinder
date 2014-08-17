@@ -34,7 +34,8 @@ public class Map {
     
     /// Calculates the hValue from a node to the end node
     func hValueForNode(node: Node, endNode: Node) -> Double {
-        return heuristicFunction.calculateHeuristicValue(node.coordinates, coordinates2: endNode.coordinates)
+        assert(false, "Unimplemented")
+        return 0
     }
     
     /// Calculates the move cost from one node to one of it's neighbour nodes
