@@ -23,14 +23,14 @@ class GridView: UIView {
     private var _endNodeView: NodeView!
     private var _draggingOperation = DraggingOperation.Toggle
     private var _draggingNode: NodeView?
-    private var _nodeViews: Matrix<NodeView?>!
+    private var _nodeViews: Matrix<NodeView!>!
     private var _cachedPath: [Node]?
     
     @IBOutlet
     private var durationLabel: UILabel!
     
     override func awakeFromNib() {
-        _nodeViews = Matrix<NodeView?>(width: _gridSize, height: _gridSize, repeatedValue: { (x, y) in
+        _nodeViews = Matrix<NodeView!>(width: _gridSize, height: _gridSize, repeatedValue: { (x, y) in
             return nil
         })
         _nodes = Matrix(width: _gridSize, height: _gridSize) {
@@ -41,13 +41,11 @@ class GridView: UIView {
         _grid = Grid(nodes: self._nodes)
         
         // Create a node view for all nodes
-        for x in 0..<_nodes.width {
-            for y in 0..<_nodes.height {
-                let nodeView = addNodeView(x, y)
-                _nodeViews[x,y] = nodeView
-                if x == 0 && y == 0 { _startNodeView = nodeView }
-                if x == 1 && y == 0 { _endNodeView = nodeView }
-            }
+        for (x, y, node) in _nodes {
+            let nodeView = addNodeView(x, y)
+            _nodeViews[x,y] = nodeView
+            if x == 0 && y == 0 { _startNodeView = nodeView }
+            if x == 1 && y == 0 { _endNodeView = nodeView }
         }
         
         _startNodeView.type = .Start
@@ -141,32 +139,15 @@ class GridView: UIView {
     }
     
     func resetPath() {
-//        if let path = _cachedPath {
-//            for node in path {
-//                let coords = node.coordinates as GridCoordinates
-//                if let nodeView = _nodeViews[coords.x, coords.y] {
-//                    nodeView.node.parent = nil
-//                    if nodeView.partOfPath { nodeView.partOfPath = false }
-//                }
-//            }
-//        }
-        
-        for x in 0..<_nodes.width {
-            for y in 0..<_nodes.height {
-                let node = _nodes[x, y]
-                node.reset()
-            }
+        for (x, y, node) in _nodes {
+            node.reset()
         }
         
-        for x in 0..<_nodes.width {
-            for y in 0..<_nodes.height {
-                if let nodeView = _nodeViews[x, y] {
-                    if nodeView.node.parent != nil { nodeView.node.parent = nil }
-                    if nodeView.partOfPath { nodeView.partOfPath = false }
-                    
-                    nodeView.setNeedsDisplay()
-                }
-            }
+        for (x, y, nodeView) in _nodeViews {
+            if nodeView.node.parent != nil { nodeView.node.parent = nil }
+            if nodeView.partOfPath { nodeView.partOfPath = false }
+            
+            nodeView.setNeedsDisplay()
         }
     }
     
@@ -185,11 +166,9 @@ class GridView: UIView {
             }
         }
         
-        for x in 0..<_nodes.width {
-            for y in 0..<_nodes.height {
-                if let nodeView = _nodeViews[x, y] {
-                    if nodeView.node.parent != nil { nodeView.setNeedsDisplay() }
-                }
+        for (x, y, node) in _nodes {
+            if let nodeView = _nodeViews[x, y] {
+                if nodeView.node.parent != nil { nodeView.setNeedsDisplay() }
             }
         }
         

@@ -78,3 +78,51 @@ public class Matrix<T> {
     }
     
 }
+
+
+
+// ----------------------
+// MARK: - SequenceType -
+// ----------------------
+
+extension Matrix: SequenceType {
+    /// Returns a generator to loop through the matrix
+    public func generate() -> MatrixGenerator<T> {
+        return MatrixGenerator(matrix: self)
+    }
+}
+
+/// Generator used to enumerate through the matrix
+public class MatrixGenerator<T>: GeneratorType {
+    /// The backed matrix
+    private let _matrix: Matrix<T>
+    /// The current x value
+    private var _x = 0
+    /// The current y value
+    private var _y = 0
+    
+    /// Init the matrix generator using the matrix
+    init(matrix: Matrix<T>) {
+        _matrix = matrix
+    }
+    
+    /// Step through the matrix
+    public func next() -> (x: Int, y: Int, element: T)? {
+        // Sanity check
+        if _x >= _matrix.width { return nil }
+        if _y >= _matrix.height { return nil }
+        
+        // Extract the element and increase the counters
+        let returnValue = (_x, _y, _matrix[_x, _y])
+        
+        // Increase the counters
+        ++_x
+        if _x >= _matrix.width {
+            _x = 0
+            ++_y
+        }
+        
+        return returnValue
+    }
+    
+}
