@@ -52,19 +52,25 @@ public class AStarAlgorithm: Algorithm {
             
             // Check each neighbour and add it to the open list
             for neighbour in validMoves {
-                // We don't check the node if it's in the closed list
-                if neighbour.closed { continue }
                 // If we can't access the tile we have to skip it
                 if !neighbour.accessible { continue }
                 // Calculate the move cost
                 let moveCost = map.moveCostForNode(currentNode, toNode: neighbour)
+                // We don't check the node if it's in the closed list
+                if neighbour.closed && (currentNode.gValue + moveCost) >= neighbour.gValue {
+                    continue
+                }
                 
                 if neighbour.opened {
                     // The node was already added to the open list
                     // We need to check if we have to re-parent it
-                    if neighbour.gValue > currentNode.gValue + moveCost {
-                        neighbour.parent = currentNode
-                        neighbour.gValue = currentNode.gValue + moveCost
+                    neighbour.parent = currentNode
+                    neighbour.gValue = currentNode.gValue + moveCost
+                    
+                    if !neighbour.closed {
+                        // Re-add it the the open list so it's sorted
+                        openList.removeAtIndex(find(openList.array, neighbour)!)
+                        openList.add(neighbour)
                     }
                 } else {
                     // Set the parent of the node

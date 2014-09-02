@@ -83,7 +83,7 @@ class GridView: UIView {
         return nodeView
     }
     
-    override func touchesBegan(touches: NSSet!, withEvent event: UIEvent!) {
+    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
         for touch in touches {
             let view = hitTest(touch.locationInView(self), withEvent: event)
             if let nodeView = view as? NodeView {
@@ -92,7 +92,7 @@ class GridView: UIView {
         }
     }
     
-    override func touchesMoved(touches: NSSet!, withEvent event: UIEvent!) {
+    override func touchesMoved(touches: NSSet, withEvent event: UIEvent) {
         for touch in touches {
             let view = hitTest(touch.locationInView(self), withEvent: event)
             if let nodeView = view as? NodeView {
@@ -101,7 +101,7 @@ class GridView: UIView {
         }
     }
     
-    override func touchesEnded(touches: NSSet!, withEvent event: UIEvent!) {
+    override func touchesEnded(touches: NSSet, withEvent event: UIEvent) {
         _draggingNode = nil
         _draggingOperation = .Toggle
     }

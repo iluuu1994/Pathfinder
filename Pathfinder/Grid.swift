@@ -186,7 +186,7 @@ public class Grid: Map {
         
         switch heuristicFunction {
             case .Manhattan:
-                return (abs(coord1.x - coord2.x) + abs(coord1.y - coord2.y)) * 20
+                return (abs(coord1.x - coord2.x) + abs(coord1.y - coord2.y)) * 40
         }
     }
     

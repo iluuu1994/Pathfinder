@@ -72,6 +72,11 @@ public class IndexedArray<T, U : Comparable> {
         }
     }
     
+    /// Force-sort if the index values were changed
+    public func sort() {
+        array.sort { self._extractIndex($0) < self._extractIndex($1) }
+    }
+    
     /// Removes the element at index from the array
     public func removeAtIndex(index: Int) {
         array.removeAtIndex(index)
@@ -87,10 +92,15 @@ public class IndexedArray<T, U : Comparable> {
         // Return 0 if there are no elements
         if array.count == 0 { return 0 }
         
+        var iterations = 0
+        var wentToZero = false
         while arrayIndex >= 0 && arrayIndex <= array.count {
+            iterations++
             // Is this the correct index?
             var correctIndex = true
             var forward = true
+            
+            if arrayIndex == 0 { wentToZero = true }
             
             // Check if the element is correctly positioned
             if arrayIndex < array.count {
@@ -107,8 +117,6 @@ public class IndexedArray<T, U : Comparable> {
             
             // Return the index if it's correct
             if correctIndex { return arrayIndex }
-            // If the slice gets one or smaller, further iteration is useless
-            if currentSlice <= 1 { break }
             // Halve the slice again
             currentSlice = halveIndex(currentSlice)
             // Depending on the size of the index we either lower or raise the index
@@ -119,9 +127,11 @@ public class IndexedArray<T, U : Comparable> {
         return 0
     }
     
-    /// Halves the index (ceil(x / 2.0))
+    /// Halves the index (floor(x / 2.0))
+    /// The index can't be 0 though
     private func halveIndex(index: Int) -> Int {
-        return Int(ceil(Double(index) / 2.0))
+        let index = Int(floor(Double(index) / 2.0))
+        return index > 0 ? index : 1
     }
     
 }
