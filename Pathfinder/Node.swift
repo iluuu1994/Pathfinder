@@ -63,15 +63,15 @@ public class Node {
     
     /// Heuristic Value
     @objc
-    public var hValue: Double = 0.0
+    public var hValue: Int = 0
     
     /// Move Cost (+ move cost of parent)
     @objc
-    public var gValue: Double = 0.0
+    public var gValue: Int = 0
     
     /// The total cost (h + g)
     @objc
-    public var fValue: Double {
+    public var fValue: Int {
         return hValue + gValue
     }
     

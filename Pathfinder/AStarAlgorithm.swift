@@ -34,7 +34,7 @@ public class AStarAlgorithm: Algorithm {
     @objc
     public class func findPathInMap(map: Map, startNode: Node, endNode: Node) -> [Node] {
         // var openList: [Node] = [startNode]
-        var openList = IndexedArray<Node, Double>(extractIndex: { (node) in return node.fValue })
+        var openList = IndexedArray<Node, Int>(extractIndex: { (node) in return node.fValue })
         openList.add(startNode)
         
         // Add the neighbours of the start node to the open list to start the iteration process

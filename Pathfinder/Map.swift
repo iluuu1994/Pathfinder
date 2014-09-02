@@ -50,13 +50,13 @@ public class Map {
     }
     
     /// Calculates the hValue from a node to the end node
-    func hValueForNode(node: Node, endNode: Node) -> Double {
+    func hValueForNode(node: Node, endNode: Node) -> Int {
         assert(false, "Unimplemented")
         return 0
     }
     
     /// Calculates the move cost from one node to one of it's neighbour nodes
-    func moveCostForNode(node: Node, toNode: Node) -> Double {
+    func moveCostForNode(node: Node, toNode: Node) -> Int {
         assert(false, "Unimplemented")
         return 0
     }

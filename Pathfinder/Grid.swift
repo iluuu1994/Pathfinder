@@ -129,9 +129,6 @@ public class Grid: Map {
     @objc
     public var allowsCuttingCorners = true
     
-    /// The accuracy of the pathfinding (0 - infinity)
-    private let _accuracy: Double = 0.25
-    
     
     
     // --------------
@@ -175,21 +172,21 @@ public class Grid: Map {
     }
     
     /// Calculates the move cost from one node to one of it's neighbour nodes
-    override internal func moveCostForNode(node: Node, toNode: Node) -> Double {
+    override internal func moveCostForNode(node: Node, toNode: Node) -> Int {
         let index = node.coordinates as Coordinates2D
         let toIndex = toNode.coordinates as Coordinates2D
         
-        return ((abs(index.x - toIndex.x) > 0 && abs(index.y - toIndex.y) > 0) ? 1 : 1.4) * _accuracy
+        return ((abs(index.x - toIndex.x) > 0 && abs(index.y - toIndex.y) > 0) ? 10 : 14)
     }
     
     /// Calculates the h value of a node
-    override internal func hValueForNode(node: Node, endNode: Node) -> Double {
+    override internal func hValueForNode(node: Node, endNode: Node) -> Int {
         let coord1 = node.coordinates as Coordinates2D
         let coord2 = endNode.coordinates as Coordinates2D
         
         switch heuristicFunction {
             case .Manhattan:
-                return Double(abs(coord1.x - coord2.x) + abs(coord1.y - coord2.y))
+                return abs(coord1.x - coord2.x) + abs(coord1.y - coord2.y) * 40
         }
     }
     
