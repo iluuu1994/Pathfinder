@@ -6,8 +6,8 @@ Pathfinder is a pathfinding library for iOS and OS X written in Swift.
 ![](./demo.png)
 ![](./demo2.png)
 
-## Work in progress!
-This library is work in progress! It's not ready for the real world yet!
+## Not maintained anymore
+GameplayKit now has [it's own pathfinder component](https://developer.apple.com/library/content/documentation/General/Conceptual/GameplayKit_Guide/Pathfinding.html). You should probably use that one instead.
 
 ## Usage
 Soon.
