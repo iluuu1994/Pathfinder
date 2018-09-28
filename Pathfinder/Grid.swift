@@ -31,8 +31,7 @@ import Foundation
 // ---------------------------------------------------------------------
 
 /// Entity that stores 2d coordinates
-@objc(PFCoordinates2D)
-public class Coordinates2D: Coordinates {
+open class Coordinates2D: Coordinates {
     
     // --------------------
     // MARK: - Properties -
@@ -59,7 +58,7 @@ public class Coordinates2D: Coordinates {
     // MARK: - Methods -
     // -----------------
     
-    override public func toArray() -> [Int] {
+    override open func toArray() -> [Int] {
         return [x, y]
     }
     
@@ -73,7 +72,7 @@ public class Coordinates2D: Coordinates {
     //
     // Combines the x and y value as a hash
     // http://en.wikipedia.org/wiki/Cantor%5Fpairing%5Ffunction#Cantor_pairing_function
-    override public var hashValue: Int {
+    override open var hashValue: Int {
         return (x + y)*(x + y + 1)/2 + y
     }
 }
@@ -81,21 +80,15 @@ public class Coordinates2D: Coordinates {
 // -------------------
 // MARK: - Printable -
 // -------------------
-extension Coordinates2D: Printable {
+extension Coordinates2D: CustomStringConvertible {
     public var description: String {
         return "(\(x),\(y))"
     }
 }
 
-// ------------------
-// MARK: - Hashable -
-// ------------------
-extension Coordinates2D: Hashable {}
-
 // -------------------
 // MARK: - Equatable -
 // -------------------
-extension Coordinates2D: Equatable {}
 public func ==(lhs: Coordinates2D, rhs: Coordinates2D) -> Bool {
     return (lhs.x == rhs.x && lhs.y == rhs.y)
 }
@@ -107,27 +100,26 @@ public func ==(lhs: Coordinates2D, rhs: Coordinates2D) -> Bool {
 // ---------------------------------------------------------------------
 
 /// Grid is an implementation of a 2d map
-@objc(PFGrid)
-public class Grid: Map {
+open class Grid: Map {
     
     // --------------------
     // MARK: - Properties -
     // --------------------
     
     /// The matrix stores the tiles of the map
-    private let _nodes: Matrix<Node>
+    fileprivate let _nodes: Matrix<Node>
     
     /// Indicates if the path is allowed to use diagonal moves
     // FIXME: Sometimes the path makes weird detours
     // FIXME: Allows making directional moves when there are adjacent neighbours
     @objc
-    public var allowsDiagonalMoves = false
+    open var allowsDiagonalMoves = false
     
     /// Indicates if the path is allowed to use diagonal moves next to a corner
     // NOTE: Unimplemented
     // TODO: Implement
     @objc
-    public var allowsCuttingCorners = true
+    open var allowsCuttingCorners = true
     
     
     
@@ -148,8 +140,8 @@ public class Grid: Map {
     // -----------------
 
     /// Returns the valid moves that can be performed from one node to the other
-    override internal func validMoves(node: Node) -> [Node] {
-        let index = node.coordinates as Coordinates2D
+    override internal func validMoves(_ node: Node) -> [Node] {
+        let index = node.coordinates as! Coordinates2D
         var moves = [Node]()
         
         // Those are the delta values from one node coordinate to the other
@@ -172,20 +164,20 @@ public class Grid: Map {
     }
     
     /// Calculates the move cost from one node to one of it's neighbour nodes
-    override internal func moveCostForNode(node: Node, toNode: Node) -> Int {
-        let index = node.coordinates as Coordinates2D
-        let toIndex = toNode.coordinates as Coordinates2D
+    override internal func moveCostForNode(_ node: Node, toNode: Node) -> Int {
+        let index = node.coordinates as! Coordinates2D
+        let toIndex = toNode.coordinates as! Coordinates2D
         
         return ((abs(index.x - toIndex.x) > 0 && abs(index.y - toIndex.y) > 0) ? 10 : 14)
     }
     
     /// Calculates the h value of a node
-    override internal func hValueForNode(node: Node, endNode: Node) -> Int {
-        let coord1 = node.coordinates as Coordinates2D
-        let coord2 = endNode.coordinates as Coordinates2D
+    override internal func hValueForNode(_ node: Node, endNode: Node) -> Int {
+        let coord1 = node.coordinates as! Coordinates2D
+        let coord2 = endNode.coordinates as! Coordinates2D
         
         switch heuristicFunction {
-            case .Manhattan:
+            case .manhattan:
                 return (abs(coord1.x - coord2.x) + abs(coord1.y - coord2.y)) * 40
         }
     }

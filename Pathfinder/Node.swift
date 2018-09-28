@@ -26,8 +26,7 @@
 import Foundation
 
 /// Defines a unit on a map
-@objc(PFNode)
-public class Node {
+open class Node {
     
     // --------------
     // MARK: - Init -
@@ -35,7 +34,6 @@ public class Node {
     
     /// Init the node using it's coordinate
     /// The coordinate never changes
-    @objc
     public init(coordinates: Coordinates) {
         self.coordinates = coordinates
     }
@@ -46,38 +44,36 @@ public class Node {
     // --------------------
     
     /// The coordinates of the node in the map
-    @objc
     public let coordinates: Coordinates
     
     /// Indicates if the node has been opened
     @objc
-    public var opened: Bool = false
+    open var opened: Bool = false
     
     /// Indicates if the node has been closed
     @objc
-    public var closed: Bool = false
+    open var closed: Bool = false
     
     /// Indicates if the node is accessible
     @objc
-    public var accessible: Bool = true
+    open var accessible: Bool = true
     
     /// Heuristic Value
     @objc
-    public var hValue: Int = 0
+    open var hValue: Int = 0
     
     /// Move Cost (+ move cost of parent)
     @objc
-    public var gValue: Int = 0
+    open var gValue: Int = 0
     
     /// The total cost (h + g)
     @objc
-    public var fValue: Int {
+    open var fValue: Int {
         return hValue + gValue
     }
     
     /// The parent node is used to lead back to the start node
-    @objc
-    public var parent: Node?
+    open var parent: Node?
     
     
     
@@ -87,7 +83,7 @@ public class Node {
     
     /// Reset the nodes properties
     @objc
-    public func reset() {
+    open func reset() {
         opened = false
         closed = false
         hValue = 0
@@ -116,7 +112,7 @@ extension Node: Hashable {
 // MARK: - Printable -
 // -------------------
 
-extension Node: Printable {
+extension Node: CustomStringConvertible {
     @objc
     public var description: String {
         return "<Node at:\(coordinates) h:\(hValue) g:\(gValue) f:\(fValue)>"

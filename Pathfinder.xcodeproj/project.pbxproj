@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		9119C515199D962A001DB154 /* Pathfinder.h in Headers */ = {isa = PBXBuildFile; fileRef = 9119C514199D962A001DB154 /* Pathfinder.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9119C51F199D962A001DB154 /* PathfinderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9119C51E199D962A001DB154 /* PathfinderTests.swift */; };
 		9119C529199D9633001DB154 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9119C528199D9633001DB154 /* Node.swift */; };
 		9119C52B199D9663001DB154 /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9119C52A199D9663001DB154 /* Map.swift */; };
 		911CD2A5199FF26A00EA7BAD /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911CD2A4199FF26A00EA7BAD /* Helpers.swift */; };
@@ -20,7 +19,6 @@
 		91761667199E926500253001 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91761666199E926500253001 /* ViewController.swift */; };
 		9176166A199E926500253001 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91761668199E926500253001 /* Main.storyboard */; };
 		9176166C199E926500253001 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9176166B199E926500253001 /* Images.xcassets */; };
-		91761678199E926500253001 /* Pathfinder_DemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91761677199E926500253001 /* Pathfinder_DemoTests.swift */; };
 		9176167F199E929B00253001 /* Pathfinder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9119C50F199D962A001DB154 /* Pathfinder.framework */; };
 		91761681199E972300253001 /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91761680199E972300253001 /* GridView.swift */; };
 		91761683199E98AD00253001 /* Grid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91761682199E98AD00253001 /* Grid.swift */; };
@@ -29,23 +27,10 @@
 		91DC3B9A19A11AD000FC9732 /* HeuristicFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91DC3B9919A11AD000FC9732 /* HeuristicFunction.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		91761672199E926500253001 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 9119C506199D962A001DB154 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 9176165F199E926500253001;
-			remoteInfo = "Pathfinder-Demo";
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		9119C50F199D962A001DB154 /* Pathfinder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pathfinder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9119C513199D962A001DB154 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9119C514199D962A001DB154 /* Pathfinder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Pathfinder.h; sourceTree = "<group>"; };
-		9119C51A199D962A001DB154 /* PathfinderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PathfinderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		9119C51D199D962A001DB154 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9119C51E199D962A001DB154 /* PathfinderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathfinderTests.swift; sourceTree = "<group>"; };
 		9119C528199D9633001DB154 /* Node.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
 		9119C52A199D9663001DB154 /* Map.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
 		911CD2A4199FF26A00EA7BAD /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
@@ -59,9 +44,6 @@
 		91761666199E926500253001 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		91761669199E926500253001 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9176166B199E926500253001 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		91761671199E926500253001 /* Pathfinder-DemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Pathfinder-DemoTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		91761676199E926500253001 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		91761677199E926500253001 /* Pathfinder_DemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pathfinder_DemoTests.swift; sourceTree = "<group>"; };
 		91761680199E972300253001 /* GridView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
 		91761682199E98AD00253001 /* Grid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Grid.swift; sourceTree = "<group>"; };
 		91761686199E99FB00253001 /* Matrix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Matrix.swift; sourceTree = "<group>"; };
@@ -78,25 +60,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9119C517199D962A001DB154 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		9176165D199E926500253001 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				9176167F199E929B00253001 /* Pathfinder.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		9176166E199E926500253001 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -107,9 +75,7 @@
 			isa = PBXGroup;
 			children = (
 				9119C511199D962A001DB154 /* Pathfinder */,
-				9119C51B199D962A001DB154 /* PathfinderTests */,
 				91761661199E926500253001 /* Pathfinder-Demo */,
-				91761674199E926500253001 /* Pathfinder-DemoTests */,
 				9119C510199D962A001DB154 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -118,9 +84,7 @@
 			isa = PBXGroup;
 			children = (
 				9119C50F199D962A001DB154 /* Pathfinder.framework */,
-				9119C51A199D962A001DB154 /* PathfinderTests.xctest */,
 				91761660199E926500253001 /* Pathfinder-Demo.app */,
-				91761671199E926500253001 /* Pathfinder-DemoTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -139,23 +103,6 @@
 			isa = PBXGroup;
 			children = (
 				9119C513199D962A001DB154 /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		9119C51B199D962A001DB154 /* PathfinderTests */ = {
-			isa = PBXGroup;
-			children = (
-				9119C51E199D962A001DB154 /* PathfinderTests.swift */,
-				9119C51C199D962A001DB154 /* Supporting Files */,
-			);
-			path = PathfinderTests;
-			sourceTree = "<group>";
-		};
-		9119C51C199D962A001DB154 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				9119C51D199D962A001DB154 /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -194,12 +141,12 @@
 			isa = PBXGroup;
 			children = (
 				91761664199E926500253001 /* AppDelegate.swift */,
-				91761666199E926500253001 /* ViewController.swift */,
 				91761680199E972300253001 /* GridView.swift */,
-				911CD2A6199FFCA200EA7BAD /* NodeView.swift */,
-				91761668199E926500253001 /* Main.storyboard */,
 				9176166B199E926500253001 /* Images.xcassets */,
+				91761668199E926500253001 /* Main.storyboard */,
+				911CD2A6199FFCA200EA7BAD /* NodeView.swift */,
 				91761662199E926500253001 /* Supporting Files */,
+				91761666199E926500253001 /* ViewController.swift */,
 			);
 			path = "Pathfinder-Demo";
 			sourceTree = "<group>";
@@ -209,23 +156,6 @@
 			children = (
 				91DC3B9D19A138CE00FC9732 /* Pathfinder-Demo-Bridging-Header.h */,
 				91761663199E926500253001 /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		91761674199E926500253001 /* Pathfinder-DemoTests */ = {
-			isa = PBXGroup;
-			children = (
-				91761677199E926500253001 /* Pathfinder_DemoTests.swift */,
-				91761675199E926500253001 /* Supporting Files */,
-			);
-			path = "Pathfinder-DemoTests";
-			sourceTree = "<group>";
-		};
-		91761675199E926500253001 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				91761676199E926500253001 /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -281,23 +211,6 @@
 			productReference = 9119C50F199D962A001DB154 /* Pathfinder.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		9119C519199D962A001DB154 /* PathfinderTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 9119C525199D962A001DB154 /* Build configuration list for PBXNativeTarget "PathfinderTests" */;
-			buildPhases = (
-				9119C516199D962A001DB154 /* Sources */,
-				9119C517199D962A001DB154 /* Frameworks */,
-				9119C518199D962A001DB154 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = PathfinderTests;
-			productName = PathfinderTests;
-			productReference = 9119C51A199D962A001DB154 /* PathfinderTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 		9176165F199E926500253001 /* Pathfinder-Demo */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 91761679199E926500253001 /* Build configuration list for PBXNativeTarget "Pathfinder-Demo" */;
@@ -315,45 +228,21 @@
 			productReference = 91761660199E926500253001 /* Pathfinder-Demo.app */;
 			productType = "com.apple.product-type.application";
 		};
-		91761670199E926500253001 /* Pathfinder-DemoTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 9176167C199E926500253001 /* Build configuration list for PBXNativeTarget "Pathfinder-DemoTests" */;
-			buildPhases = (
-				9176166D199E926500253001 /* Sources */,
-				9176166E199E926500253001 /* Frameworks */,
-				9176166F199E926500253001 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				91761673199E926500253001 /* PBXTargetDependency */,
-			);
-			name = "Pathfinder-DemoTests";
-			productName = "Pathfinder-DemoTests";
-			productReference = 91761671199E926500253001 /* Pathfinder-DemoTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		9119C506199D962A001DB154 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0600;
+				LastUpgradeCheck = 1000;
 				ORGANIZATIONNAME = "Ilija Tovilo";
 				TargetAttributes = {
 					9119C50E199D962A001DB154 = {
 						CreatedOnToolsVersion = 6.0;
-					};
-					9119C519199D962A001DB154 = {
-						CreatedOnToolsVersion = 6.0;
+						LastSwiftMigration = 0800;
 					};
 					9176165F199E926500253001 = {
 						CreatedOnToolsVersion = 6.0;
-					};
-					91761670199E926500253001 = {
-						CreatedOnToolsVersion = 6.0;
-						TestTargetID = 9176165F199E926500253001;
 					};
 				};
 			};
@@ -371,9 +260,7 @@
 			projectRoot = "";
 			targets = (
 				9119C50E199D962A001DB154 /* Pathfinder */,
-				9119C519199D962A001DB154 /* PathfinderTests */,
 				9176165F199E926500253001 /* Pathfinder-Demo */,
-				91761670199E926500253001 /* Pathfinder-DemoTests */,
 			);
 		};
 /* End PBXProject section */
@@ -386,26 +273,12 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9119C518199D962A001DB154 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		9176165E199E926500253001 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				9176166A199E926500253001 /* Main.storyboard in Resources */,
 				9176166C199E926500253001 /* Images.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		9176166F199E926500253001 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -429,14 +302,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9119C516199D962A001DB154 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				9119C51F199D962A001DB154 /* PathfinderTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		9176165C199E926500253001 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -448,23 +313,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9176166D199E926500253001 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				91761678199E926500253001 /* Pathfinder_DemoTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		91761673199E926500253001 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 9176165F199E926500253001 /* Pathfinder-Demo */;
-			targetProxy = 91761672199E926500253001 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		91761668199E926500253001 /* Main.storyboard */ = {
@@ -486,21 +335,33 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -532,13 +393,23 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -547,6 +418,7 @@
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -556,6 +428,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -567,6 +440,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -574,8 +448,10 @@
 				INFOPLIST_FILE = Pathfinder/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "ch.ilijatovilo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -583,6 +459,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -590,38 +467,10 @@
 				INFOPLIST_FILE = Pathfinder/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "ch.ilijatovilo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
-		9119C526199D962A001DB154 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = PathfinderTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Debug;
-		};
-		9119C527199D962A001DB154 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = PathfinderTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};
@@ -631,16 +480,17 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
-				GCC_OPTIMIZATION_LEVEL = s;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "Pathfinder-Demo/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "ch.ilijatovilo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Pathfinder-Demo/Pathfinder-Demo-Bridging-Header.h";
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -651,43 +501,12 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = "Pathfinder-Demo/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "ch.ilijatovilo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Pathfinder-Demo/Pathfinder-Demo-Bridging-Header.h";
-			};
-			name = Release;
-		};
-		9176167D199E926500253001 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "Pathfinder-DemoTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Pathfinder-Demo.app/Pathfinder-Demo";
-			};
-			name = Debug;
-		};
-		9176167E199E926500253001 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "Pathfinder-DemoTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Pathfinder-Demo.app/Pathfinder-Demo";
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};
@@ -712,29 +531,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9119C525199D962A001DB154 /* Build configuration list for PBXNativeTarget "PathfinderTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				9119C526199D962A001DB154 /* Debug */,
-				9119C527199D962A001DB154 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		91761679199E926500253001 /* Build configuration list for PBXNativeTarget "Pathfinder-Demo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9176167A199E926500253001 /* Debug */,
 				9176167B199E926500253001 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		9176167C199E926500253001 /* Build configuration list for PBXNativeTarget "Pathfinder-DemoTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				9176167D199E926500253001 /* Debug */,
-				9176167E199E926500253001 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -26,11 +26,9 @@
 import Foundation
 
 /// Algorithm is a protocol that defines the interface for the pathfinding algorithm implementations
-@objc(PFAlgorithm)
 public protocol Algorithm: class {
 
     /// Finds the best path in a map from point A to B
-    @objc
-    class func findPathInMap(map: Map, startNode: Node, endNode: Node) -> [Node]
+    static func findPathInMap(_ map: Map, startNode: Node, endNode: Node) -> [Node]
     
 }

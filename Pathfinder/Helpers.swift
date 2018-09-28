@@ -26,25 +26,25 @@
 import Foundation
 
 /// Measures the time of a closure
-public func measureTime(block: () -> ()) -> Double {
+public func measureTime(_ block: () -> ()) -> Double {
     // Record start time
-    let start = NSDate()
+    let start = Date()
     // Execute the closure
     block()
     // Record end time
-    let end = NSDate()
+    let end = Date()
     
     // Calculate and return the delta time
-    return end.timeIntervalSinceDate(start)
+    return end.timeIntervalSince(start)
 }
 
 /// Build a path from linked nodes
-internal func backtracePath(endNode: Node) -> [Node] {
+internal func backtracePath(_ endNode: Node) -> [Node] {
     var route = [endNode]
     
     // Recursive lookup of the nodes parent
     while let parent = route.first?.parent {
-        route.insert(parent, atIndex: 0)
+        route.insert(parent, at: 0)
     }
     
     return route

@@ -27,18 +27,17 @@ import Foundation
 
 /// An array that is always sorted by an index
 /// This dramatically improves the performance of arrays that need to be sorted frequently
-@objc(PFIndexedArray)
-public class IndexedArray<T, U : Comparable> {
+open class IndexedArray<T, U : Comparable> {
     
     // --------------------
     // MARK: - Properties -
     // --------------------
     
     /// The backed array
-    public private(set) var array = [T]()
+    open fileprivate(set) var array = [T]()
     
     /// A closure that extracts the index from an array element
-    private let _extractIndex: (T) -> U
+    fileprivate let _extractIndex: (T) -> U
     
     
     
@@ -47,7 +46,7 @@ public class IndexedArray<T, U : Comparable> {
     // --------------
     
     /// Init the IndexedArray using the index extraction closure
-    public init(extractIndex: (T) -> U) {
+    public init(extractIndex: @escaping (T) -> U) {
         _extractIndex = extractIndex
     }
     
@@ -59,7 +58,7 @@ public class IndexedArray<T, U : Comparable> {
     
     /// Add an element to the array
     /// The element will automatically be inserted in the right place
-    public func add(element: T) {
+    open func add(_ element: T) {
         // Find the correct index
         let index = findIndex(element)
         
@@ -68,22 +67,22 @@ public class IndexedArray<T, U : Comparable> {
             array.append(element)
         } else {
             // Finally, insert the element in the right index
-            array.insert(element, atIndex: index)
+            array.insert(element, at: index)
         }
     }
     
     /// Force-sort if the index values were changed
-    public func sort() {
-        array.sort { self._extractIndex($0) < self._extractIndex($1) }
+    open func sort() {
+        _ = array.sorted { self._extractIndex($0) < self._extractIndex($1) }
     }
     
     /// Removes the element at index from the array
-    public func removeAtIndex(index: Int) {
-        array.removeAtIndex(index)
+    open func removeAtIndex(_ index: Int) {
+        array.remove(at: index)
     }
     
     /// Finds the correct index in the array for an element
-    private func findIndex(element: T) -> Int {
+    fileprivate func findIndex(_ element: T) -> Int {
         // The index that the array is ordered by
         let index = _extractIndex(element)
         // The index we're currently using
@@ -93,14 +92,11 @@ public class IndexedArray<T, U : Comparable> {
         if array.count == 0 { return 0 }
         
         var iterations = 0
-        var wentToZero = false
         while arrayIndex >= 0 && arrayIndex <= array.count {
-            iterations++
+            iterations += 1
             // Is this the correct index?
             var correctIndex = true
             var forward = true
-            
-            if arrayIndex == 0 { wentToZero = true }
             
             // Check if the element is correctly positioned
             if arrayIndex < array.count {
@@ -129,7 +125,7 @@ public class IndexedArray<T, U : Comparable> {
     
     /// Halves the index (floor(x / 2.0))
     /// The index can't be 0 though
-    private func halveIndex(index: Int) -> Int {
+    fileprivate func halveIndex(_ index: Int) -> Int {
         let index = Int(floor(Double(index) / 2.0))
         return index > 0 ? index : 1
     }

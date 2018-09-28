@@ -28,12 +28,12 @@ import Pathfinder
 
 public class NodeView: UIView {
     
-    public enum Type {
+    public enum PathType {
         case Empty, Start, End, Obstacle
     }
     
     public let node: Node
-    private var _type: Type = .Empty
+    private var _pathType: PathType = .Empty
     
     private var _partOfPath: Bool = false
     public var partOfPath: Bool {
@@ -46,14 +46,14 @@ public class NodeView: UIView {
         }
     }
     
-    public var type: Type {
+    public var type: PathType {
         get {
-            return _type
+            return _pathType
         }
-        set(newType) {
-            _type = newType
+        set(newPathType) {
+            _pathType = newPathType
             
-            switch _type {
+            switch _pathType {
                 case .Obstacle:
                     node.accessible = false
                 default:
@@ -65,7 +65,7 @@ public class NodeView: UIView {
     }
     
     private var _color: UIColor {
-        switch _type {
+        switch _pathType {
             case .Empty:
                 return !partOfPath ? (node.parent == nil ? UIColor(white: 1.0, alpha: 1.0) : // Default
                                                            UIColor(red: 0.83, green: 0.93, blue: 1.0, alpha: 1.0)) : // Open List
@@ -76,8 +76,6 @@ public class NodeView: UIView {
                 return UIColor(red: 0.75, green: 0.23, blue: 0.19, alpha: 1.0)
             case .End:
                 return UIColor(red: 0.22, green: 0.8, blue: 0.46, alpha: 1.0)
-            default:
-                node.accessible = true
         }
     }
     
@@ -89,10 +87,10 @@ public class NodeView: UIView {
     // Compiler, shut up!
     required public init(coder aDecoder: NSCoder) {
         self.node = Node(coordinates: Coordinates2D(x: 0, y: 0))
-        super.init(coder: aDecoder)
+        super.init(coder: aDecoder)!
     }
     
-    override public func drawRect(rect: CGRect) {
+    override public func draw(_ rect: CGRect) {
         _color.set()
         UIRectFill(rect)
         
