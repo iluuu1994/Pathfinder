@@ -1,102 +1,87 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6205" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="vXZ-lx-hvc">
+    <device id="retina5_9" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6198"/>
-        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Constraints with attributes relative to the layout margin" minToolsVersion="6.0"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
                 <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="Pathfinder_Demo" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
-                        <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="61s-x2-gxN" customClass="GridView" customModule="Pathfinder_Demo" customModuleProvider="target">
-                                <rect key="frame" x="16" y="28" width="568" height="564"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="61s-x2-gxN" customClass="GridView" customModule="Pathfinder_Demo" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="198.66666666666663" width="375" height="375"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="61s-x2-gxN" secondAttribute="height" multiplier="1:1" id="2J5-d9-fDN"/>
                                 </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="2J5-d9-fDN"/>
-                                    </mask>
-                                </variation>
-                                <variation key="widthClass=compact">
-                                    <mask key="constraints">
-                                        <include reference="2J5-d9-fDN"/>
-                                    </mask>
-                                </variation>
-                                <connections>
-                                    <outlet property="durationLabel" destination="s68-Ar-uzd" id="hbq-eA-fH5"/>
-                                </connections>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nZx-6x-f8y">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <state key="normal" title="Start Pathfinder">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="startPathfinder:" destination="61s-x2-gxN" eventType="touchUpInside" id="kfI-HD-fHF"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Duration: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s68-Ar-uzd">
-                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8iU-S4-4po">
+                                <rect key="frame" x="0.0" y="597.66666666666663" width="375" height="156.33333333333337"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nZx-6x-f8y" userLabel="Find Path Button">
+                                        <rect key="frame" x="0.0" y="0.0" width="187.66666666666666" height="156.33333333333334"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                        <state key="normal" title="Find Path">
+                                            <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="findPath:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="hT7-ow-LNy"/>
+                                            <action selector="startPathfinder:" destination="VGc-0p-JKp" eventType="touchUpInside" id="4ZW-pa-VUV"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x8R-Kj-zAi" userLabel="Reset Button">
+                                        <rect key="frame" x="187.66666666666663" y="0.0" width="187.33333333333337" height="156.33333333333334"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                        <state key="normal" title="Reset">
+                                            <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="findPath:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="n9W-hT-8dr"/>
+                                            <action selector="reset:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="MZZ-6W-kyF"/>
+                                            <action selector="startPathfinder:" destination="VGc-0p-JKp" eventType="touchUpInside" id="D5G-5h-NCz"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="x8R-Kj-zAi" firstAttribute="width" secondItem="nZx-6x-f8y" secondAttribute="width" id="BHd-T3-K1a"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="s68-Ar-uzd" firstAttribute="top" secondItem="nZx-6x-f8y" secondAttribute="bottom" constant="8" id="2Kv-YI-vTx"/>
-                            <constraint firstItem="s68-Ar-uzd" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="6vm-re-yYl"/>
-                            <constraint firstItem="61s-x2-gxN" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="78V-2f-5IQ"/>
-                            <constraint firstItem="nZx-6x-f8y" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="AV6-vP-ovx"/>
-                            <constraint firstItem="nZx-6x-f8y" firstAttribute="top" secondItem="61s-x2-gxN" secondAttribute="bottom" constant="8" id="BqW-C7-5kV"/>
-                            <constraint firstItem="61s-x2-gxN" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="8" id="JLX-g9-boj"/>
-                            <constraint firstItem="61s-x2-gxN" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="Q9Q-g4-oX7"/>
-                            <constraint firstItem="s68-Ar-uzd" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="ehx-Xt-mrZ"/>
+                            <constraint firstItem="qYk-DH-Idj" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="8iU-S4-4po" secondAttribute="bottom" constant="24" id="FiT-Fg-RUG"/>
+                            <constraint firstItem="qYk-DH-Idj" firstAttribute="trailing" secondItem="8iU-S4-4po" secondAttribute="trailing" id="P29-N3-PRh"/>
+                            <constraint firstItem="61s-x2-gxN" firstAttribute="top" relation="greaterThanOrEqual" secondItem="qYk-DH-Idj" secondAttribute="top" id="Peo-S6-FCH"/>
+                            <constraint firstItem="61s-x2-gxN" firstAttribute="top" secondItem="qYk-DH-Idj" secondAttribute="top" priority="750" id="XSh-xn-3Zx"/>
+                            <constraint firstItem="qYk-DH-Idj" firstAttribute="bottom" secondItem="8iU-S4-4po" secondAttribute="bottom" priority="750" constant="24" id="cMw-OX-SfM"/>
+                            <constraint firstItem="61s-x2-gxN" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="han-as-3FF"/>
+                            <constraint firstItem="61s-x2-gxN" firstAttribute="centerY" secondItem="kh9-bI-dsS" secondAttribute="centerY" constant="-20" id="hvI-Jk-Ial"/>
+                            <constraint firstItem="61s-x2-gxN" firstAttribute="leading" secondItem="qYk-DH-Idj" secondAttribute="leading" priority="750" id="kWf-tM-fhu"/>
+                            <constraint firstItem="61s-x2-gxN" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="qYk-DH-Idj" secondAttribute="leading" id="knH-Aq-eEB"/>
+                            <constraint firstItem="8iU-S4-4po" firstAttribute="top" secondItem="61s-x2-gxN" secondAttribute="bottom" constant="24" id="oTN-zB-6x2"/>
+                            <constraint firstItem="8iU-S4-4po" firstAttribute="leading" secondItem="qYk-DH-Idj" secondAttribute="leading" id="oa9-Mp-MZz"/>
+                            <constraint firstItem="61s-x2-gxN" firstAttribute="trailing" secondItem="qYk-DH-Idj" secondAttribute="trailing" priority="750" id="swN-Ss-q98"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="nZx-6x-f8y"/>
-                                <exclude reference="s68-Ar-uzd"/>
-                            </mask>
-                            <mask key="constraints">
-                                <exclude reference="AV6-vP-ovx"/>
-                                <exclude reference="BqW-C7-5kV"/>
-                                <exclude reference="2Kv-YI-vTx"/>
-                                <exclude reference="6vm-re-yYl"/>
-                                <exclude reference="ehx-Xt-mrZ"/>
-                            </mask>
-                        </variation>
-                        <variation key="widthClass=compact">
-                            <mask key="subviews">
-                                <include reference="nZx-6x-f8y"/>
-                                <include reference="s68-Ar-uzd"/>
-                            </mask>
-                            <mask key="constraints">
-                                <include reference="AV6-vP-ovx"/>
-                                <include reference="BqW-C7-5kV"/>
-                                <include reference="2Kv-YI-vTx"/>
-                                <include reference="6vm-re-yYl"/>
-                                <include reference="ehx-Xt-mrZ"/>
-                            </mask>
-                        </variation>
+                        <viewLayoutGuide key="safeArea" id="qYk-DH-Idj"/>
                     </view>
+                    <connections>
+                        <outlet property="gridView" destination="61s-x2-gxN" id="jW5-Gh-VGL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+                <exit id="VGc-0p-JKp" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="369" y="343"/>
+            <point key="canvasLocation" x="368.80000000000001" y="342.85714285714289"/>
         </scene>
     </scenes>
 </document>

@@ -28,5 +28,5 @@ import Foundation
 /// Lists the functions that can be used to calculate the heuristic value
 public enum HeuristicFunction {
     /// dX + dY (+ dZ)
-    case Manhattan
+    case manhattan
 }

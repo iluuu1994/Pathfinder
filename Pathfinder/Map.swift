@@ -27,15 +27,14 @@ import Foundation
 
 /// Map is an abstract class that can be overridden to created any type of map
 /// TODO: I ran into issues when making the Map a protocol. I'll try to do this in the future.
-@objc(PFMap)
-public class Map {
+open class Map {
     
     // --------------------
     // MARK: - Properties -
     // --------------------
     
     /// The function used to calculate the heuristic value
-    var heuristicFunction: HeuristicFunction = .Manhattan
+    var heuristicFunction: HeuristicFunction = .manhattan
     
     
     
@@ -44,19 +43,19 @@ public class Map {
     // -----------------
     
     /// Returns the valid moves that can be performed from one node to the other
-    func validMoves(node: Node) -> [Node] {
+    func validMoves(_ node: Node) -> [Node] {
         assert(false, "Unimplemented")
         return []
     }
     
     /// Calculates the hValue from a node to the end node
-    func hValueForNode(node: Node, endNode: Node) -> Int {
+    func hValueForNode(_ node: Node, endNode: Node) -> Int {
         assert(false, "Unimplemented")
         return 0
     }
     
     /// Calculates the move cost from one node to one of it's neighbour nodes
-    func moveCostForNode(node: Node, toNode: Node) -> Int {
+    func moveCostForNode(_ node: Node, toNode: Node) -> Int {
         assert(false, "Unimplemented")
         return 0
     }

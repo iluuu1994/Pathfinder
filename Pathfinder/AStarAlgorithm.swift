@@ -27,14 +27,12 @@ import Foundation
 
 /// AStarAlgorithm is a class that implements the A* Algorithm for pathfinding
 /// http://en.wikipedia.org/wiki/A*_search_algorithm
-@objc(PFAStarAlgorithm)
-public class AStarAlgorithm: Algorithm {
+open class AStarAlgorithm: Algorithm {
 
     /// Finds the path from point A to B in any Map
-    @objc
-    public class func findPathInMap(map: Map, startNode: Node, endNode: Node) -> [Node] {
+    open class func findPathInMap(_ map: Map, startNode: Node, endNode: Node) -> [Node] {
         // var openList: [Node] = [startNode]
-        var openList = IndexedArray<Node, Int>(extractIndex: { (node) in return node.fValue })
+        let openList = IndexedArray<Node, Int>(extractIndex: { (node) in return node.fValue })
         openList.add(startNode)
         
         // Add the neighbours of the start node to the open list to start the iteration process
@@ -48,7 +46,7 @@ public class AStarAlgorithm: Algorithm {
             }
             
             // Returns the neighbours of the node
-            var validMoves = map.validMoves(currentNode)
+            let validMoves = map.validMoves(currentNode)
             
             // Check each neighbour and add it to the open list
             for neighbour in validMoves {
@@ -69,7 +67,7 @@ public class AStarAlgorithm: Algorithm {
                     
                     if !neighbour.closed {
                         // Re-add it the the open list so it's sorted
-                        openList.removeAtIndex(find(openList.array, neighbour)!)
+                        openList.removeAtIndex(openList.array.index(of:neighbour)!)
                         openList.add(neighbour)
                     }
                 } else {

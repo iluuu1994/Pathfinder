@@ -27,8 +27,7 @@ import Foundation
 
 /// A matrix is able to store values in 2 dimensional form
 // TODO: Make Objective-C compatible
-@objc(PFMatrix)
-public class Matrix<T> {
+open class Matrix<T> {
 
     // --------------------
     // MARK: - Properties -
@@ -41,7 +40,7 @@ public class Matrix<T> {
     public let height: Int
     
     /// Backed array that stores the elements of the matrix
-    private var _elements: [T]
+    fileprivate var _elements: [T]
     
     
     
@@ -52,7 +51,7 @@ public class Matrix<T> {
     /// Init the matrix with a width, height, and a repeated value
     /// The repeated value is used, because a matrix can never have empty indexes
     /// If you specifically need empty indexes, just use Optionals
-    public init(width: Int, height: Int, repeatedValue: (x: Int, y: Int) -> T) {
+    public init(width: Int, height: Int, repeatedValue: (_ x: Int, _ y: Int) -> T) {
         // Sanity check
         assert(width >= 0, "The width of the matrix needs to be larger or equal to 0.")
         assert(height >= 0, "The height of the matrix needs to be larger or equal to 0.")
@@ -60,12 +59,12 @@ public class Matrix<T> {
         // Init the variables
         self.width = width
         self.height = height
-        _elements = Array<T>(count: width*height, repeatedValue: repeatedValue(x: 0, y: 0))
+        _elements = Array<T>(repeating: repeatedValue(0, 0), count: width*height)
         
         // Fill the matrix with the repeated value
         for x in 0..<width {
             for y in 0..<height {
-                self[x, y] = repeatedValue(x: x, y: y)
+                self[x, y] = repeatedValue(x, y)
             }
         }
     }
@@ -77,7 +76,7 @@ public class Matrix<T> {
     // -------------------
     
     /// Gets an element in the matrix using it's x and y position
-    public subscript(x: Int, y: Int) -> T {
+    open subscript(x: Int, y: Int) -> T {
         get {
             // Sanity check
             assert(x >= 0 && x < self.width, "x needs to be larger or equal to zero and smaller than the width of the matrix.")
@@ -102,21 +101,21 @@ public class Matrix<T> {
 // MARK: - SequenceType -
 // ----------------------
 
-extension Matrix: SequenceType {
+extension Matrix: Sequence {
     /// Returns a generator to loop through the matrix
-    public func generate() -> MatrixGenerator<T> {
+    public func makeIterator() -> MatrixGenerator<T> {
         return MatrixGenerator(matrix: self)
     }
 }
 
 /// Generator used to enumerate through the matrix
-public class MatrixGenerator<T>: GeneratorType {
+open class MatrixGenerator<T>: IteratorProtocol {
     /// The backed matrix
-    private let _matrix: Matrix<T>
+    fileprivate let _matrix: Matrix<T>
     /// The current x value
-    private var _x = 0
+    fileprivate var _x = 0
     /// The current y value
-    private var _y = 0
+    fileprivate var _y = 0
     
     /// Init the matrix generator using the matrix
     init(matrix: Matrix<T>) {
@@ -124,7 +123,7 @@ public class MatrixGenerator<T>: GeneratorType {
     }
     
     /// Step through the matrix
-    public func next() -> (x: Int, y: Int, element: T)? {
+    open func next() -> (x: Int, y: Int, element: T)? {
         // Sanity check
         if _x >= _matrix.width { return nil }
         if _y >= _matrix.height { return nil }
@@ -133,10 +132,10 @@ public class MatrixGenerator<T>: GeneratorType {
         let returnValue = (_x, _y, _matrix[_x, _y])
         
         // Increase the counters
-        ++_x
+        _x += 1
         if _x >= _matrix.width {
             _x = 0
-            ++_y
+            _y += 1
         }
         
         return returnValue

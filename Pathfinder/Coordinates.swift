@@ -26,11 +26,11 @@
 import Foundation
 
 /// Coordinates stores coordinate of any type of coordinate system
-@objc(PFCoordinates)
-public class Coordinates {
+
+open class Coordinates {
     
     /// Wraps the coordinates in an array
-    public func toArray() -> [Int] {
+    open func toArray() -> [Int] {
         assert(false, "`toArray` must be overridden in the Coordinates subclasses!")
         return []
     }
@@ -42,7 +42,7 @@ public class Coordinates {
     
     // TODO: "Error: Declarations in extensions cannot override yet".
     // Move this to the extension once that feature is supported by Swift.
-    public var hashValue: Int {
+    open var hashValue: Int {
         return 0
     }
     
